@@ -3,8 +3,11 @@ import Login from "./pages/Login";
 import Info from "./pages/Info";
 import Edit from "./pages/Edit";
 import "./App.css"
+import { useState } from "react";
 
 function App() {
+
+  const [prisoners, setPrisoners] = useState([])
 
   return (
     <BrowserRouter>
