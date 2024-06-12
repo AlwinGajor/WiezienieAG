@@ -12,6 +12,26 @@ app.get("/", (req, res) => {
     res.send("OK")
 })
 
-app.listen(3000, () => {
-    console.log("Dziala na http://localhost:3000")
+app.post("/", (req, res) => {
+    res.send("OK")
+})
+
+app.put("/", (req, res) => {
+    res.send("OK")
+})
+
+app.delete("/", (req, res) => {
+    res.send("OK")
+})
+
+app.listen(3000, async () => {
+    try {
+        await mongoose.connect("mongodb://127.0.0.1:27017/wiezienieag")
+        console.log("Dziala na http://localhost:3000")
+    }
+    catch (err) {
+        throw err
+    }
+    
+    
 })
