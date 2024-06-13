@@ -2,11 +2,14 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Login() {
-
-    const [name, setName] = useState("")
-    const [password, setPassword] = useState("")
+    // Do przemieszczania się pomiędzy stronami
     const navigate = useNavigate()
 
+    // Przechowywanie informacji z formularza
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
+    
+    // Obsługa kliknięcia przycisku Zaloguj
     function handleClick() {
         if (name=="alwin" && password=="123") {
             navigate("/info")

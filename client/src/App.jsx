@@ -7,24 +7,31 @@ import "./App.css"
 import { useEffect, useState } from "react";
 
 function App() {
-
+  // Przechowywanie danych o wiezniach
   const [prisoners, setPrisoners] = useState([])
+
+  // Dane, ktore zmieniaja sie po kliknieciu w danego wieznia
   const [currentPrisoner, setCurrentPrisoner] = useState({_id:"", imie:"", nazwisko:"", cela:0})
 
+  // Pobranie i aktualizacja danych z serwera
   async function getPrisoners() {
+    // Pobranie danych z serwera metodą GET (Czytaj)
     let result = await fetch("http://localhost:3000", {
       method:"get"
     })
+    // Zamiana danych na JSON
     let resJson = await result.json()
+    // Aktualizacja danych o wiezniach
     setPrisoners(resJson)
     setCurrentPrisoner(resJson[0])
-    console.log(resJson)
   }
 
+  // Pobierz dane o wiezniach z serwera po zaladowaniu strony
   useEffect(() => {
     getPrisoners()
   }, [])
 
+  // Aplikacja korzysta z ReactRouterDOM - biblioteka do poruszania się pomiędzy stronami
   return (
     <BrowserRouter>
       <Routes>

@@ -2,14 +2,18 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Add(props) {
+    // Do przemieszczania się pomiędzy stronami
     const navigate = useNavigate()
 
+    // Przechowywanie informacji z formularza
     const [name, setName] = useState("")
     const [lastname, setLastname] = useState("")
     const [cell, setCell] = useState("")
 
+    // Obsługa kliknięcia przycisku Dodaj
     async function handleClick() {
         try {
+            // Wysłanie danych do serwera metodą POST (Dodaj)
             let res = await fetch(`http://localhost:3000`, {
                 method:"post",
                 headers:{
@@ -21,8 +25,9 @@ export default function Add(props) {
                   cela:parseInt(cell)
                 })
             })
-            console.log(await res.json())
+            // Zaktualizowanie obecnych danych o więźniach
             props.getPrisoners()
+            // Zmiana strony na info
             navigate("/info")
         }
         catch (e) {

@@ -2,21 +2,25 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Edit(props) {
-
+  // Do przemieszczania się pomiędzy stronami
   const navigate = useNavigate()
 
+  // Przechowywanie informacji z formularza
   const [name, setName] = useState("")
   const [lastname, setLastname] = useState("")
   const [cell, setCell] = useState("")
 
+  // Aktualizacja powyzszych informacji gdy zmieni się currentPrisoner
   useEffect(() => {
     setName(props.currentPrisoner.imie)
     setLastname(props.currentPrisoner.nazwisko)
     setCell(props.currentPrisoner.cela)
   }, [props.currentPrisoner])
 
+  // Obsluga klikniecia przycisku Aktualizuj dane
   async function updatePrisoner() {
     try {
+      // Wysłanie danych do serwera metodą PUT (zaktualizuj)
       await fetch(`http://localhost:3000/${props.currentPrisoner._id}`, {
         method:"put",
         headers:{
@@ -28,7 +32,9 @@ export default function Edit(props) {
           cela:parseInt(cell)
         })
       })
+      // Zaktualizowanie obecnych danych o więźniach
       props.getPrisoners()
+      // Zmiana strony na info
       navigate("/info")
     }
     catch (e) {
@@ -37,12 +43,16 @@ export default function Edit(props) {
     }
   }
 
+  // Obsluga klikniecia przycisku Usun wieznia
   async function deletePrisoner() {
     try {
+      // Wysłanie danych do serwera metodą PUT (usun)
       await fetch(`http://localhost:3000/${props.currentPrisoner._id}`, {
         method:"delete"
       })
+      // Zaktualizowanie obecnych danych o więźniach
       props.getPrisoners()
+      // Zmiana strony na info
       navigate("/info")
     }
     catch (e) {

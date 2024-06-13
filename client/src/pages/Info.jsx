@@ -1,8 +1,10 @@
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Info(props) {
+  // Do przemieszczania się pomiędzy stronami
   const navigate = useNavigate()
 
+  // Obsługa kliknięcia w wieźnia
   function clickHandler(prisoner) {
     props.setCurrentPrisoner(prisoner)
     navigate("/edit")
