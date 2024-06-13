@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const setupRoutes = require("./routes")
 
 const app = express()
 
@@ -8,21 +9,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get("/", (req, res) => {
-    res.send("OK")
-})
-
-app.post("/", (req, res) => {
-    res.send("OK")
-})
-
-app.put("/", (req, res) => {
-    res.send("OK")
-})
-
-app.delete("/", (req, res) => {
-    res.send("OK")
-})
+setupRoutes(app)
 
 app.listen(3000, async () => {
     try {
