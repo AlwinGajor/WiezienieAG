@@ -29,7 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/info" element={<Info prisoners={prisoners} setCurrentPrisoner={setCurrentPrisoner}/>}/>
-        <Route path="/edit" element={<Edit currentPrisoner={currentPrisoner}/>}/>
+        <Route path="/edit" element={<Edit currentPrisoner={currentPrisoner} getPrisoners={getPrisoners}/>}/>
+        <Route path="/add" element={<Add/>}/>
       </Routes>
     </BrowserRouter>
   )

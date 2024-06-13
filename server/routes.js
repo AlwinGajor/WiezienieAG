@@ -30,7 +30,7 @@ function setupRoutes(app) {
     })
     
     app.delete("/:id", async (req, res) => {
-        let result = await PrisonerModel.delete({_id:req.params.id})
+        let result = await PrisonerModel.deleteOne({_id:req.params.id})
         res.send(result)
     })
 }
