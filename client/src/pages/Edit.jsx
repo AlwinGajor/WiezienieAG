@@ -63,6 +63,9 @@ export default function Edit(props) {
 
   return (
     <main>
+      <style>
+          {`body{background: url("add.jpg") no-repeat; background-size: cover}`}
+      </style>
       <div className="formContainer">
         <h1>Edytuj więźnia</h1>
         <label>Imie: <input value={name} onChange={(e) => setName(e.target.value)}/></label>

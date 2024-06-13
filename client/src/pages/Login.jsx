@@ -20,6 +20,9 @@ export default function Login() {
 
     return (
         <main>
+            <style>
+                {`body{background: url("login.jpg") no-repeat; background-size: cover}`}
+            </style>
             <div className="formContainer">
                 <h1>Zaloguj się!</h1><br/>
                 <label>Nazwa: <input value={name} onChange={(e) => setName(e.target.value)}/></label>

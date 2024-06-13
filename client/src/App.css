@@ -9,6 +9,7 @@ main {
   flex-direction: column;
   justify-content: center;
   gap:3px;
+  color:white;
 }
 
 .prisonersContainer {
@@ -16,10 +17,11 @@ main {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  color:white;
 }
 
 .prisoner {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 10px;
   list-style:inside;
   cursor: pointer;
@@ -66,4 +68,5 @@ input {
 
 h1 {
   text-align: center;
+  color:white;
 }

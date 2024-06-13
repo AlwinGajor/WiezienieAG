@@ -12,6 +12,9 @@ export default function Info(props) {
 
   return (
     <main>
+      <style>
+          {`body{background: url("lista.jpg") no-repeat; background-size: cover}`}
+      </style>
       <div className="formContainer">
         <h1>Lista więźniów</h1>
         <div className="prisonersContainer">
