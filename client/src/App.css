@@ -1,3 +1,16 @@
 .loginContainer {
   text-align: center;
 }
+
+.prisonersContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.prisoner {
+  border: 1px solid black;
+  padding: 10px;
+  list-style:inside;
+  cursor: pointer;
+}

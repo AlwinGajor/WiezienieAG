@@ -8,13 +8,16 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [prisoners, setPrisoners] = useState([])
+  const [currentPrisoner, setCurrentPrisoner] = useState({_id:"", imie:"", nazwisko:"", cela:0})
 
   async function getPrisoners() {
     let result = await fetch("http://localhost:3000", {
       method:"get"
     })
-    setPrisoners(result)
-    console.log(result)
+    let resJson = await result.json()
+    setPrisoners(resJson)
+    setCurrentPrisoner(resJson[0])
+    console.log(resJson)
   }
 
   useEffect(() => {
@@ -25,8 +28,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}/>
-        <Route path="/info" element={<Info/>}/>
-        <Route path="/edit" element={<Edit/>}/>
+        <Route path="/info" element={<Info prisoners={prisoners} setCurrentPrisoner={setCurrentPrisoner}/>}/>
+        <Route path="/edit" element={<Edit currentPrisoner={currentPrisoner}/>}/>
       </Routes>
     </BrowserRouter>
   )
