@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Info(props) {
   const navigate = useNavigate()
@@ -9,21 +9,26 @@ export default function Info(props) {
   }
 
   return (
-    <div>
-      <h1>Lista więźniów</h1>
-      <div className="prisonersContainer">
-      {
-        props.prisoners.map((prisoner) => {
-          return (
-            <ul key={prisoner._id} className="prisoner" onClick={() => clickHandler(prisoner)}>
-              <li>Imie: {prisoner.imie}</li>
-              <li>Nazwisko: {prisoner.nazwisko}</li>
-              <li>Cela: {prisoner.cela}</li>
-            </ul>
-          )
-        })
-      }
+    <main>
+      <div className="formContainer">
+        <h1>Lista więźniów</h1>
+        <div className="prisonersContainer">
+        {
+          props.prisoners.map((prisoner) => {
+            return (
+              <ul key={prisoner._id} className="prisoner" onClick={() => clickHandler(prisoner)}>
+                <li>Imie: {prisoner.imie}</li>
+                <li>Nazwisko: {prisoner.nazwisko}</li>
+                <li>Cela: {prisoner.cela}</li>
+              </ul>
+            )
+          })
+        }
+        </div>
+        <span>
+          <Link to="/add" className="addPrisoner">Dodaj więźnia</Link>
+        </span>
       </div>
-    </div>
+    </main>
   )
 }

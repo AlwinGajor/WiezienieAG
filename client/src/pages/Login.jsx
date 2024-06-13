@@ -16,11 +16,13 @@ export default function Login() {
     }
 
     return (
-        <div className="loginContainer">
-            <h1>Zaloguj się!</h1><br/>
-            Nazwa: <input value={name} onChange={(e) => setName(e.target.value)}/><br/>
-            Hasło: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
-            <button onClick={handleClick}>Zaloguj</button>
-        </div>
+        <main>
+            <div className="formContainer">
+                <h1>Zaloguj się!</h1><br/>
+                <label>Nazwa: <input value={name} onChange={(e) => setName(e.target.value)}/></label>
+                <label>Hasło: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/></label>
+                <span><button onClick={handleClick}>Zaloguj</button></span>
+            </div>
+        </main>
     )
 }

@@ -19,11 +19,14 @@ export default function Edit(props) {
     try {
       await fetch(`http://localhost:3000/${props.currentPrisoner._id}`, {
         method:"put",
-        body:{
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body:JSON.stringify({
           imie:name,
           nazwisko:lastname,
-          cela:cell
-        }
+          cela:parseInt(cell)
+        })
       })
       props.getPrisoners()
       navigate("/info")
@@ -49,12 +52,19 @@ export default function Edit(props) {
   }
 
   return (
-    <div>
-      <input value={name} onChange={(e) => setName(e.target.value)}/>
-      <input value={lastname} onChange={(e) => setLastname(e.target.value)}/>
-      <input value={cell} onChange={(e) => setCell(e.target.value)}/>
-      <button onClick={updatePrisoner}>Aktualizuj dane</button>
-      <button onClick={deletePrisoner}>Usuń więźnia</button>
-    </div>
+    <main>
+      <div className="formContainer">
+        <h1>Edytuj więźnia</h1>
+        <label>Imie: <input value={name} onChange={(e) => setName(e.target.value)}/></label>
+        <label>Nazwisko: <input value={lastname} onChange={(e) => setLastname(e.target.value)}/></label>
+        <label>Cela: <input type="number" value={cell} onChange={(e) => setCell(e.target.value)}/></label>
+        <span>
+          <button onClick={updatePrisoner}>Aktualizuj dane</button>
+        </span>
+        <span>
+          <button onClick={deletePrisoner}>Usuń więźnia</button>
+        </span>
+      </div>
+    </main>
   )
 }

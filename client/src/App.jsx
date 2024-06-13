@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Info from "./pages/Info";
 import Edit from "./pages/Edit";
+import Add from "./pages/Add";
 import "./App.css"
 import { useEffect, useState } from "react";
 
@@ -30,7 +31,7 @@ function App() {
         <Route path="/" element={<Login/>}/>
         <Route path="/info" element={<Info prisoners={prisoners} setCurrentPrisoner={setCurrentPrisoner}/>}/>
         <Route path="/edit" element={<Edit currentPrisoner={currentPrisoner} getPrisoners={getPrisoners}/>}/>
-        <Route path="/add" element={<Add/>}/>
+        <Route path="/add" element={<Add getPrisoners={getPrisoners}/>}/>
       </Routes>
     </BrowserRouter>
   )

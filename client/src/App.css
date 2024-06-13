@@ -1,11 +1,21 @@
-.loginContainer {
-  text-align: center;
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:3px;
 }
 
 .prisonersContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .prisoner {
@@ -13,4 +23,47 @@
   padding: 10px;
   list-style:inside;
   cursor: pointer;
+}
+
+.addPrisoner {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: black;
+  text-decoration: none;
+  background-color: lightgrey;
+}
+
+.addPrisoner:hover {
+  background-color: rgb(224, 222, 222);
+}
+
+span {
+  align-self: center;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: black;
+  text-decoration: none;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(224, 222, 222);
+}
+
+input {
+  padding: 1px 10px;
+  font-size: 14px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+h1 {
+  text-align: center;
 }
